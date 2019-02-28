@@ -1,8 +1,10 @@
+# Dependencies
 import os
 import csv
 
 # Path to collect data from the Resources folder
 budgetCSV = os.path.join( "Resources", "budget_data.csv")
+
 
 # Read in the CSV file
 with open(budgetCSV, 'r') as csvfile:
@@ -50,6 +52,8 @@ with open(budgetCSV, 'r') as csvfile:
     # Calculate Average Change
     avgChange=sumChange/(numMonth-1)
     #Out Put
+    print(f"Financial Analysis")
+    print(f"------------------------------")
     print(f"Total months : {numMonth}")
     print(f"Total : {netProfit}")
     #for x in numData:
@@ -59,3 +63,17 @@ with open(budgetCSV, 'r') as csvfile:
     print(f"Greatest Increase in Profits: {bigIncDay} {'${:}'.format(bigIncrease)}")
     print(f"Greatest Decrease in Profits: {bigDecDay} {'${:}'.format(bigDecrease)}")
     #print(f"Big Increase day {bigIncDay}")
+
+# Specify the file to write to
+output_path = os.path.join("output", "new.txt")
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w') as text_file:
+    # Write the all the output
+    print(f"Financial Analysis",file=text_file)
+    print(f"------------------------------",file=text_file)
+    print(f"Total months : {numMonth}",file=text_file)
+    print(f"Total : {netProfit}",file=text_file)
+    print(f"Average  Change: {'${:,.2f}'.format(avgChange)}",file=text_file)
+    print(f"Greatest Increase in Profits: {bigIncDay} {'${:}'.format(bigIncrease)}",file=text_file)
+    print(f"Greatest Decrease in Profits: {bigDecDay} {'${:}'.format(bigDecrease)}",file=text_file)
+
