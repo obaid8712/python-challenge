@@ -65,7 +65,7 @@ with open(budgetCSV, 'r') as csvfile:
     #print(f"Big Increase day {bigIncDay}")
 
 # Specify the file to write to
-output_path = os.path.join("output", "new.txt")
+output_path = os.path.join("output", "PyBank_output.txt")
 # Open the file using "write" mode. Specify the variable to hold the contents
 with open(output_path, 'w') as text_file:
     # Write the all the output
