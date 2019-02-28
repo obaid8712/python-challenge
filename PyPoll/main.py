@@ -54,6 +54,7 @@ with open(electionCSV, 'r') as csvfile:
             countVote(row[2])             
   
 #Out Put
+
 print("Election Results")
 print("-------------------------")
 print(f"Total Votes: {totalId} ")
@@ -72,4 +73,19 @@ for x in Candidate:
     k+=1  
 print("-------------------------")    
 print(f"Winner: {Candidate[winindex]}")
-    
+
+# Specify the file to write to
+output_path = os.path.join("output", "PyPoll_out.txt")
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w') as text_file:
+    # Write the all the output 
+    print("Election Results",file=text_file)
+    print("-------------------------",file=text_file)
+    print(f"Total Votes: {totalId} ",file=text_file) 
+    k=0
+    for x in Candidate:
+        percent=CastVoteEach[k]*100/totalId    
+        print(f"{x}: {'{:,.3f}%'.format(percent)} ({CastVoteEach[k]})",file=text_file)
+        k+=1  
+    print("-------------------------",file=text_file)    
+    print(f"Winner: {Candidate[winindex]}",file=text_file)
