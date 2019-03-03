@@ -10,40 +10,28 @@ electionCSV = os.path.join( "Resources", "election_data.csv")
 with open(electionCSV, 'r') as csvfile:
 
     # Split the data on commas
-    csvreader = csv.reader(csvfile, delimiter=',')
-
-    # Loop through the data 
-    i=0
-    
+    csvreader = csv.reader(csvfile, delimiter=',') 
+        
     # Declare a place holder for name of candidate
     Candidate=[]
     # Declare a dictionary to hole candidate name and vote cast
-    dic_poll={}
-
+    dic_poll={}    
     
-    #CastVoteEach=[]
-    #while i<len(Candidate):
-    #    CastVoteEach[i]=(str("0"))
-    #    i=i+1
-    #for x in CastVoteEach:  
-    #    print(x)
     # Function for Counting vote for each candidate 
     def countVote(vote):
-        j=0
-       
-        while j < len(Candidate):
-            if vote == Candidate[j]:
-                
-                dic_poll[Candidate[j]]=int(dic_poll.get(Candidate[j]))+1
-            j=j+1        
-   
+               
+        for x,y  in dic_poll.items():
+            if vote == x:
+                y=int(dic_poll.get(x))+1
+                dic_poll[x]=y
+    # Loop through the data
     i=0
     for row in csvreader:
 
         i = i+1
         if i != 1: # Discard the header row
-            
-            #A complete list of candidates who received votes
+                          
+            #Find a list of candidates who received votes
             y=0
             for x in Candidate:
                 if row[2] == x:  
@@ -55,6 +43,8 @@ with open(electionCSV, 'r') as csvfile:
                 dic_poll[str(row[2])]=0
                 y=0 
 
+            
+            # Call function to count the vote
             countVote(row[2])             
 
 # The total number of votes cast
