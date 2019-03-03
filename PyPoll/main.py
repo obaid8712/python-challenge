@@ -1,3 +1,5 @@
+# Programm for PyPoll
+# Import dependancy
 import os
 import csv
 
@@ -12,10 +14,13 @@ with open(electionCSV, 'r') as csvfile:
 
     # Loop through the data 
     i=0
-    totalId=0
-    # Declare a place holder for numeric data with out header
+    
+    # Declare a place holder for name of candidate
     Candidate=[]
-    CastVoteEach=["0","0","0","0"]
+    # Declare a dictionary to hole candidate name and vote cast
+    dic_poll={}
+
+    
     #CastVoteEach=[]
     #while i<len(Candidate):
     #    CastVoteEach[i]=(str("0"))
@@ -28,18 +33,16 @@ with open(electionCSV, 'r') as csvfile:
        
         while j < len(Candidate):
             if vote == Candidate[j]:
-                CastVoteEach[j]=int(CastVoteEach[j])+1
-            j=j+1
-    
-    #numData1=[]
-    j=0
+                
+                dic_poll[Candidate[j]]=int(dic_poll.get(Candidate[j]))+1
+            j=j+1        
+   
     i=0
     for row in csvreader:
 
         i = i+1
         if i != 1: # Discard the header row
-            #The total number of votes cast
-            totalId+=1
+            
             #A complete list of candidates who received votes
             y=0
             for x in Candidate:
@@ -49,43 +52,46 @@ with open(electionCSV, 'r') as csvfile:
                 y=0
             else:
                 Candidate.append(str(row[2]))
+                dic_poll[str(row[2])]=0
                 y=0 
 
             countVote(row[2])             
-  
-#Out Put
 
-print("Election Results")
+# The total number of votes cast
+total_vote_cast=0
+max_vote=0
+winner=""
+for x, vote_cast in dic_poll.items():
+    # Find total vote casted
+    total_vote_cast=total_vote_cast + vote_cast
+    # Find Winner
+    if max_vote < vote_cast:
+        max_vote=vote_cast
+        winner=x
+# Out put of Election Results
+print(f"Election Results")
+print(f"-------------------------")
+print(f"Total Votes: {total_vote_cast} ")
 print("-------------------------")
-print(f"Total Votes: {totalId} ")
-k=0
-#find the winer
-HighestVote=max(CastVoteEach)
+# Print a list of candidate name with result 
+for name, vote_cast in dic_poll.items() :
+    percent_count=vote_cast*100/total_vote_cast
+    print(f"{name}: {'{:,.3f}%'.format(percent_count)} ({vote_cast})")
+# Print the winner's name
+print("-------------------------")
+print(f"The Winner is {winner}")
 
-for x in CastVoteEach:
-    if HighestVote==x:
-        winindex=k
-    k+=1
-k=0
-for x in Candidate:
-    percent=CastVoteEach[k]*100/totalId    
-    print(f"{x}: {'{:,.3f}%'.format(percent)} ({CastVoteEach[k]})")
-    k+=1  
-print("-------------------------")    
-print(f"Winner: {Candidate[winindex]}")
-
-# Specify the file to write to
+# Specify the file to write 
 output_path = os.path.join("output", "PyPoll_out.txt")
 # Open the file using "write" mode. Specify the variable to hold the contents
 with open(output_path, 'w') as text_file:
     # Write the all the output 
     print("Election Results",file=text_file)
     print("-------------------------",file=text_file)
-    print(f"Total Votes: {totalId} ",file=text_file) 
-    k=0
-    for x in Candidate:
-        percent=CastVoteEach[k]*100/totalId    
-        print(f"{x}: {'{:,.3f}%'.format(percent)} ({CastVoteEach[k]})",file=text_file)
-        k+=1  
+    print(f"Total Votes: {total_vote_cast} ",file=text_file) 
+    print("-------------------------",file=text_file)
+    for name, vote_cast in dic_poll.items() :
+        percent_count=vote_cast*100/total_vote_cast
+        print(f"{name}: {'{:,.3f}%'.format(percent_count)} ({vote_cast})",file=text_file)
     print("-------------------------",file=text_file)    
-    print(f"Winner: {Candidate[winindex]}",file=text_file)
+    print(f"Winner: {winner}",file=text_file)
