@@ -17,4 +17,15 @@ Data analytic team made through this challange by using python interpretor and v
 * Greatest Increase in Profits: Feb-2012 $1926159
 * Greatest Decrease in Profits: Sep-2013 $-2196167
 >CEO smile and team went to the bed for sleeping.
-Python Data Analysis Project 
+> Python Data Analysis Project PyPoll is to overcome a legacy time consuming vote counting system. The city mayor promises to change this legacy vote counting system. he called a data analytic team and expresses about his own promises. The team aggred to accomplish this job with minimum budget. Team uses power of python with vs code editor and came up with following result.
+>Election Results
+-------------------------
+*Total Votes: 3521001 
+-------------------------
+*Khan: 63.000% (2218231)
+*Correy: 20.000% (704200)
+*Li: 14.000% (492940)
+*O'Tooley: 3.000% (105630)
+-------------------------
+*Winner: Khan
+> The city mayor thanked to the team and invite a dinner party to share his joy.
