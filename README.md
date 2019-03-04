@@ -1,6 +1,6 @@
 # python-challenge
 # Python Data Analysis Project PyBank
-Pybank is a real world problem. A Kirkland Purified water manufacturer company wants to analyzed his own data set to find out the maximum change of profit and loss time. The company CEO secretly made a analytic team to analysis following issues before anual conference with key member of company. 
+PyBank is a real world problem. A Kirkland Purified water manufacturer company wants to analyzed his own data set to find out the maximum change of profit and loss time. The company CEO secretly made a analytic team to analysis following issues before anual conference with key member of company. 
 
 * The total number of months included in the dataset
 * The net total amount of "Profit/Losses" over the entire period
