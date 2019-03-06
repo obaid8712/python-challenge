@@ -31,4 +31,4 @@ PyPoll is a challenging project to overcome a legacy time consuming vote countin
 * O'Tooley: 3.000% (105630)
 -------------------------
 * Winner: Khan
->The city mayor thanked to the team and invite a dinner party to share his joy.
+>The city mayor thanked to the team and order for a grant dinner party to share his joy.
