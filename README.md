@@ -19,7 +19,7 @@ Data analytic team made through this challange by using python interpretor and v
 >CEO smile and team went to the bed for sleeping.
 --------------------------------------
 # Python Data Analysis Project PyPoll
-PyPoll is a challenging project to overcome a legacy time consuming vote counting system. The city mayor promises to change this legacy vote counting system. he called a data analytic team and expresses about his own promises. The team aggred to accomplish this job with minimum budget. Team uses the power of python with vs code editor and came up with following result.
+PyPoll is a challenging project to overcome a legacy time consuming vote counting system. The city mayor promises to change this legacy vote counting system. he called a data analytic team and expresses about his own promises. The team agreed to accomplish this job with minimum budget. Team uses the power of python with vs code editor and came up with following result.
 
 >Election Results
 -------------------------
